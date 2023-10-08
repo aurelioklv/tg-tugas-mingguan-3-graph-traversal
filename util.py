@@ -20,9 +20,6 @@ def init_edges_from_file(G: nx.Graph, filename="edge_list.txt"):
 
 
 def get_odd_vertices(G: nx.Graph):
-    odd_vertices = list()
-    for node in G.nodes():
-        if G.degree(node) % 2 == 1:
-            odd_vertices.append(node)
+    odd_degree_vertices = [v for v in G.nodes() if G.degree[v] % 2 != 0]
 
-    return odd_vertices
+    return odd_degree_vertices
